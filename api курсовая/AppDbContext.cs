@@ -5,11 +5,11 @@ namespace api_курсовая
 {
     public class AppDbContext : DbContext
     {
-        public DbSet<User> Users { get; set; }
-        public DbSet<Role> Roles { get; set; }
-        public DbSet<Supply> Supplies { get; set; }
-        public DbSet<SupplyType> SupplyTypes { get; set; }
-        public DbSet<ShoppingCart> ShoppingCart { get; set; }
+        public DbSet<UserEntity> Users { get; set; }
+        public DbSet<RoleEntity> Roles { get; set; }
+        public DbSet<SupplyEntity> Supplies { get; set; }
+        public DbSet<SupplyTypeEntity> SupplyTypes { get; set; }
+        public DbSet<ShoppingCartEntity> ShoppingCart { get; set; }
 
         
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -19,8 +19,9 @@ namespace api_курсовая
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<ShoppingCart>().HasKey(u => new { u.UserId, u.SupplyId });
+            modelBuilder.Entity<ShoppingCartEntity>().HasKey(u => new { u.UserId, u.SupplyId });
             base.OnModelCreating(modelBuilder);
+                
         }
     }
 }

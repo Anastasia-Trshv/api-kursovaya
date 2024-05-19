@@ -1,6 +1,6 @@
 ﻿namespace api_курсовая.model
 {
-    public class ShoppingCart
+    public class ShoppingCartEntity
     {
         public int UserId { get; set; }
         public int SupplyId { get; set; }

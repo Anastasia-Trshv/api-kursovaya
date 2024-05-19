@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34714.143
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "api курсовая", "api курсовая\api курсовая.csproj", "{6BAF1032-BC17-4591-AFEC-07891C470E63}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "api курсовая", "api курсовая\api курсовая.csproj", "{6BAF1032-BC17-4591-AFEC-07891C470E63}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kursovaya.Core", "Kursovaya.Core\Kursovaya.Core.csproj", "{48A7E2F4-DA5D-46F0-9576-1CB73D6CA160}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kursovaya.Application", "Kursach.Application\Kursovaya.Application.csproj", "{EE7C8FA9-363F-4215-8BE2-9D27B108355B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{6BAF1032-BC17-4591-AFEC-07891C470E63}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6BAF1032-BC17-4591-AFEC-07891C470E63}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6BAF1032-BC17-4591-AFEC-07891C470E63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48A7E2F4-DA5D-46F0-9576-1CB73D6CA160}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48A7E2F4-DA5D-46F0-9576-1CB73D6CA160}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48A7E2F4-DA5D-46F0-9576-1CB73D6CA160}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48A7E2F4-DA5D-46F0-9576-1CB73D6CA160}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE7C8FA9-363F-4215-8BE2-9D27B108355B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE7C8FA9-363F-4215-8BE2-9D27B108355B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE7C8FA9-363F-4215-8BE2-9D27B108355B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE7C8FA9-363F-4215-8BE2-9D27B108355B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

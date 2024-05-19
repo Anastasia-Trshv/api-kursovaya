@@ -16,4 +16,9 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Kursach.Application\Kursovaya.Application.csproj" />
+    <ProjectReference Include="..\Kursovaya.Core\Kursovaya.Core.csproj" />
+  </ItemGroup>
+
 </Project>
