@@ -20,20 +20,20 @@ namespace api_курсовая.Repositories
                 .AsNoTracking()
                 .ToListAsync();
             var supplies = suppliesEntities
-                .Select(s => Supply.Create(s.Name,s.Description,s.Picture,s.Type,s.Price).sup)
+                .Select(s => Supply.Create(s.Id,s.Name,s.Description,s.Picture,s.Type,s.Price).sup)
                 .ToList();
             return supplies;
         }
 
-        public async Task<int> Create(Supply supply)
+        public async Task<Guid> Create(Supply supply)
         {
-            SupplyEntity newsupply = new SupplyEntity(supply.Name,supply.Description,supply.Picture,supply.Type,supply.Price);
+            SupplyEntity newsupply = new SupplyEntity(supply.Id,supply.Name,supply.Description,supply.Picture,supply.Type,supply.Price);
             await _context.Supplies.AddAsync(newsupply);
             await _context.SaveChangesAsync();
             return newsupply.Id;
         }
 
-        public async Task<int> Update(int id, string name, string description, string picture, int type, double price)
+        public async Task<Guid> Update(Guid id, string name, string description, string picture, int type, double price)
         {
             await _context.Supplies
                 .Where(s => s.Id == id)
@@ -46,7 +46,7 @@ namespace api_курсовая.Repositories
                 
             return id;
         }
-        public async Task<int> Delete(int id)
+        public async Task<Guid> Delete(Guid id)
         {
             await _context.Supplies
                 .Where(s => s.Id == id)

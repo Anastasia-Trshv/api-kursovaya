@@ -8,7 +8,7 @@ namespace Kursovaya.Core.Model
 {
     internal class SupplyType
     {
-        public int Id { get;  }
+        public Guid Id { get;  }
         public string TypeName { get;  }
     }
 }

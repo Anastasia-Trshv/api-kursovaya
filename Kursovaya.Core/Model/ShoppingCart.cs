@@ -8,7 +8,7 @@ namespace Kursovaya.Core.Model
 {
     internal class ShoppingCart
     {
-        public int UserId { get;  }
+        public Guid UserId { get;  }
         public int SupplyId { get;  }
         public int Amount { get;  }
 

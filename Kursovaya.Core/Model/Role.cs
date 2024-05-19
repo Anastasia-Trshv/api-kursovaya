@@ -8,7 +8,7 @@ namespace Kursovaya.Core.Model
 {
     internal class Role
     {
-        public int Id { get; }
+        public Guid Id { get; }
         public string Role_name { get;  }
     }
 }

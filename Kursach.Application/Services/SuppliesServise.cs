@@ -21,15 +21,15 @@ namespace Kursovaya.Application.Services
         {
             return await _supplyRepository.Get();
         }
-        public async Task<int> CreateSupplies(Supply sup)
+        public async Task<Guid> CreateSupplies(Supply sup)
         {
             return await _supplyRepository.Create(sup);
         }
-        public async Task<int> UpdateSupply(int id, string name, string description, string picture, int type, double price)
+        public async Task<Guid> UpdateSupply(Guid id, string name, string description, string picture, int type, double price)
         {
             return await _supplyRepository.Update(id, name, description, picture, type, price);
         }
-        public async Task<int> DeleteSupply(int id)
+        public async Task<Guid> DeleteSupply(Guid id)
         {
             return await _supplyRepository.Delete(id);
         }

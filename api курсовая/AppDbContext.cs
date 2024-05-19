@@ -11,7 +11,6 @@ namespace api_курсовая
         public DbSet<SupplyTypeEntity> SupplyTypes { get; set; }
         public DbSet<ShoppingCartEntity> ShoppingCart { get; set; }
 
-        
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("Server=LAPTOP-OHI96F6C\\SQLEXPRESS;Database=Kursovaya4sem;" +
