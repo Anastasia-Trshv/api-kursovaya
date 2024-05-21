@@ -7,6 +7,7 @@
          string Description,
          string Picture,
          int Type,
+         //string Type,
          double Price);
     
 }

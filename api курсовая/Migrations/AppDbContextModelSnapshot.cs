@@ -24,9 +24,11 @@ namespace api_курсовая.Migrations
 
             modelBuilder.Entity("api_курсовая.model.RoleEntity", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Role_name")
                         .IsRequired()
@@ -84,9 +86,11 @@ namespace api_курсовая.Migrations
 
             modelBuilder.Entity("api_курсовая.model.SupplyTypeEntity", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("TypeName")
                         .IsRequired()

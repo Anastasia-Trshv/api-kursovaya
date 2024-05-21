@@ -12,7 +12,7 @@ using api_курсовая;
 namespace api_курсовая.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240519204004_Init")]
+    [Migration("20240521001635_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -27,9 +27,11 @@ namespace api_курсовая.Migrations
 
             modelBuilder.Entity("api_курсовая.model.RoleEntity", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Role_name")
                         .IsRequired()
@@ -87,9 +89,11 @@ namespace api_курсовая.Migrations
 
             modelBuilder.Entity("api_курсовая.model.SupplyTypeEntity", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("TypeName")
                         .IsRequired()

@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace api_курсовая.Controllers
 {
     [ApiController]
-    [Route("controller")]
+    [Route("[controller]/[action]")]
     public class SuppliesController : ControllerBase
     {
         private readonly ISuppliesServise suppliesServise;

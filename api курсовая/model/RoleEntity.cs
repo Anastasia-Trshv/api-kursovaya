@@ -2,7 +2,7 @@
 {
     public class RoleEntity
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public string Role_name { get; set; }
     }
 }

@@ -2,7 +2,7 @@
 {
     public class SupplyTypeEntity
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public string TypeName { get; set; }
     }
 }
