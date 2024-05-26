@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Kursovaya.Core.Model
 {
-    internal class User
+    public class User
     {
 
-        public User(Guid id, string name, string email, string password, int role)
+        public User(Guid id, string name, string email, string password, string role)
         {
             Id = id;
             Name = name;
@@ -22,18 +22,14 @@ namespace Kursovaya.Core.Model
         public string Name { get;  }
         public string Email { get;  }
         public string Password { get;  }
-        public int Role { get;  }
+        public string Role { get;  }
 
-        public static (User user, string Error) Create(Guid id,string name, string email, string password, int role)
+        public static User Create(Guid id,string name, string email, string password, string role)
         {
-            string error = string.Empty;
-            if(string.IsNullOrEmpty(name))
-            {
-                error = "Name can not be empty";
-                
-            }
+            
             var user = new User(id,name, email, password, role);
-            return (user, error);
+            return (user);
         }
+        public User() { }
     }
 }
