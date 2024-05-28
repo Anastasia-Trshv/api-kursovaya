@@ -20,7 +20,7 @@ namespace api_курсовая.Repositories
             var user = await _context.Users.FirstOrDefaultAsync(x => x.Email == email && x.Password==password);
             if (user != null)
             {
-                var userRole = IdToRole(user.Role);
+                var userRole = await IdToRole(user.Role);
                 var user1 = User.Create(user.Id, user.Name, user.Email, user.Password, userRole.ToString());
                 return user1;
             }
@@ -49,7 +49,7 @@ namespace api_курсовая.Repositories
         public async Task<string> IdToRole(int Id)
         {
             var userRole = await _context.Roles.FirstOrDefaultAsync(r => Id == r.Id);
-            return (userRole.Role_name);
+            return (userRole.Role_name.ToString());
         }
 
         public async Task<bool> CheckUser(string Email)

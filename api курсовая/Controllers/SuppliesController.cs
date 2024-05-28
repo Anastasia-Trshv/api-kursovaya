@@ -1,6 +1,8 @@
 ﻿using api_курсовая.Contracts;
 using Kursovaya.Core.Abstract;
 using Kursovaya.Core.Model;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace api_курсовая.Controllers
@@ -15,6 +17,8 @@ namespace api_курсовая.Controllers
             this.suppliesServise = suppliesServise;
         }
 
+
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [HttpGet]
         public async Task<ActionResult<List<SuppliesResponse>>> GetSupplies()
         {
@@ -22,6 +26,8 @@ namespace api_курсовая.Controllers
             var response = sup.Select(s => new SuppliesResponse(s.Id, s.Name, s.Description, s.Picture, s.Type, s.Price));
             return Ok(response);
         }
+
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [HttpPost]
         public async Task<ActionResult<Guid>> CreateSupply([FromBody] SuppliesRequest request)
         {
@@ -43,12 +49,16 @@ namespace api_курсовая.Controllers
                 return Ok(sup.Id);
             }
         }
+
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [HttpPut("{id:guid}")]
         public async Task<ActionResult<Guid>> UpdateSupplies(Guid id, [FromBody] SuppliesRequest request)
         {
            var sup= await suppliesServise.UpdateSupply(id, request.Name,request.Description,request.Picture,request.Type,request.Price);
             return Ok(sup);
         }
+
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [HttpDelete("{id:guid}")]
         public async Task<ActionResult<Guid>> DeleteSupply(Guid id)
         {

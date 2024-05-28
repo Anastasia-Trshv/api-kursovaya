@@ -10,6 +10,7 @@ namespace api_курсовая
         public DbSet<SupplyEntity> Supplies { get; set; }
         public DbSet<SupplyTypeEntity> SupplyTypes { get; set; }
         public DbSet<ShoppingCartEntity> ShoppingCart { get; set; }
+        public DbSet<RefreshTokenEntity> Refreshs { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

@@ -4,7 +4,8 @@
     (
         Guid id,
         string Name,
-        string Email,
-        string Role
+        string Role,
+        string Access,
+        string Refresh
         );
 }

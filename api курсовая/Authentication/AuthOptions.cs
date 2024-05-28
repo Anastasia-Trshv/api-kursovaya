@@ -7,7 +7,7 @@ namespace api_курсовая.Authentication
     {
         public const string ISSUER = "MyAuthServer";
         public const string AUDIENCE = "MyAuthClient";
-        const string KEY = "Key1212121212121212154654987987813215613489789413_987135468791469874___usydygvaueyvb";
+         const string KEY = "Key1212121212121212154654987987813215613489789413_987135468791469874___usydygvaueyvbYFFYiugIUTRLTUfluyYFCYvuYFvTDFYTcytdOFcltydFulyf89745324986785641";
         public static SymmetricSecurityKey GetSymmetricSecurityKey()
         {
 

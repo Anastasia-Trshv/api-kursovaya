@@ -17,6 +17,7 @@ builder.Services.AddScoped<ISuppliesServise, SuppliesServise>();
 builder.Services.AddScoped<ISupplyRepository, SupplyRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserServise, UserServise>();
+builder.Services.AddScoped<IAuthRepository, AuthRepository>();
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
@@ -57,19 +58,19 @@ app.UseCors(x =>
 });
 
 
-app.Map("/login/{username}", (string username, string role) =>
-{
-    var claims = new List<Claim> { new Claim(ClaimTypes.Name, username), new Claim(ClaimTypes.Role, role) };
+//app.Map("/login/{username}", (string username, string role, string id) =>
+//{
+//    var claims = new List<Claim> { new Claim(ClaimTypes.Name, username), new Claim(ClaimTypes.Role, role), new Claim("userId", id) };
 
-    var jwt = new JwtSecurityToken(
-    issuer: AuthOptions.ISSUER,
-    audience: AuthOptions.AUDIENCE,
-    claims: claims,
-    expires: DateTime.UtcNow.Add(TimeSpan.FromMinutes(10)),
-    signingCredentials: new SigningCredentials(AuthOptions.GetSymmetricSecurityKey(),
-    SecurityAlgorithms.HmacSha256));
+//    var jwt = new JwtSecurityToken(
+//    issuer: AuthOptions.ISSUER,
+//    audience: AuthOptions.AUDIENCE,
+//    claims: claims,
+//    expires: DateTime.UtcNow.Add(TimeSpan.FromMinutes(10)),
+//    signingCredentials: new SigningCredentials(AuthOptions.GetSymmetricSecurityKey(),
+//    SecurityAlgorithms.HmacSha256));
 
-    return new JwtSecurityTokenHandler().WriteToken(jwt);
-});
+//    return new JwtSecurityTokenHandler().WriteToken(jwt);
+//});
 
 app.Run();
