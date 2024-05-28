@@ -10,7 +10,7 @@ namespace api_курсовая.model
         public bool IsAktive { get; set; }
 
         public RefreshTokenEntity(Guid id, string token) {
-        Id= Guid.NewGuid();
+            Id= Guid.NewGuid();
             UserId = id;
             Token= token;
             IsAktive= true;

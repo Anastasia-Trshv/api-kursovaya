@@ -31,8 +31,8 @@ namespace api_курсовая.Controllers
             User us = await _userServise.GetUser(login,password);
             if (us.Id.ToString() != "00000000-0000-0000-0000-000000000000") {
 
-                var refreshToken = _authRepository.GenerateRefreshToken(us);
-                var accessToken = _authRepository.GenerateAccessToken(us);
+                var refreshToken = await _authRepository.GenerateRefreshToken(us);
+                var accessToken = await _authRepository.GenerateAccessToken(us);
                 var response =  new UserResponse(us.Id, us.Name, us.Role, accessToken.ToString(), refreshToken.ToString());
 
                 
@@ -43,7 +43,7 @@ namespace api_курсовая.Controllers
             else
             {
                
-                return Unauthorized();
+                return BadRequest();
             }
         }
 
@@ -58,16 +58,15 @@ namespace api_курсовая.Controllers
                 request.Role);
 
            int role = await _userServise.TurnRoleToId(us.Role);
-               
-
-
            
                 await _userServise.CreateUser(us);
+
 
             var refreshToken = _authRepository.GenerateRefreshToken(us);
             var accessToken = _authRepository.GenerateAccessToken(us);
 
-            return Ok(new { refreshToken, accessToken, us.Role,us.Id });
+            var response = new UserResponse(us.Id, us.Name, us.Role, accessToken.ToString(), refreshToken.ToString());
+            return Ok(response);
             
         }
         [HttpGet]

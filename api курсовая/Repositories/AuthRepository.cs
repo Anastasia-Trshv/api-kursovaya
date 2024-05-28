@@ -49,7 +49,7 @@ namespace api_курсовая.Repositories
             return tokenHandler.WriteToken(token);
         }
 
-        string IAuthRepository.GenerateAccessToken(User user)
+        async Task<string> IAuthRepository.GenerateAccessToken(User user)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes("my_secret_key");

@@ -10,7 +10,7 @@ namespace Kursovaya.Core.Abstract
     public interface IAuthRepository
     {
         Task<string> GenerateRefreshToken(User user);
-        string GenerateAccessToken(User user);
+         Task<string> GenerateAccessToken(User user);
 
     }
 }

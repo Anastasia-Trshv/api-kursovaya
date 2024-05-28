@@ -2,9 +2,19 @@
 {
     public class ShoppingCartEntity
     {
-        public Guid UserId { get; set; }
-        public int SupplyId { get; set; }
+        public string UserId { get; set; }
+        public string SupplyId { get; set; }
         public int Amount { get; set; }
 
+        public ShoppingCartEntity(string userid, string supid,int amount) {
+            UserId = userid;
+            SupplyId = supid;
+            Amount = amount;
+        }
+
+        public static ShoppingCartEntity Create(string userid, string supid, int amount)
+        {
+            return new ShoppingCartEntity(userid, supid, amount);
+        }
     }
 }
