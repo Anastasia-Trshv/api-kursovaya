@@ -21,7 +21,7 @@ namespace api_курсовая
         {
             modelBuilder.Entity<ShoppingCartEntity>().HasKey(u => new { u.UserId, u.SupplyId });
             base.OnModelCreating(modelBuilder);
-                
+
         }
     }
 }

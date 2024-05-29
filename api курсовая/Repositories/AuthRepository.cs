@@ -43,8 +43,9 @@ namespace api_курсовая.Repositories
         };
 
             var token = tokenHandler.CreateToken(tokenDescriptor);
-            //RefreshTokenEntity refresh = new RefreshTokenEntity(user.Id.ToString(), token.ToString());
-           // await _context.Refreshs.AddAsync(refresh);
+            RefreshTokenEntity refresh = new RefreshTokenEntity(user.Id.ToString(), token.ToString());
+            await _context.Refreshs.AddAsync(refresh);
+            await _context.SaveChangesAsync();  
 
             return tokenHandler.WriteToken(token);
         }

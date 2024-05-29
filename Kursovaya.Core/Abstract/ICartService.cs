@@ -12,6 +12,6 @@ namespace Kursovaya.Core.Abstract
 
         Task<string> DeleteSup(string userid, string supId);
         Task<List<Supply>> GetCart(string id);
-        Task<string> AddSupply(string userid, string supId);
+        Task<string> AddSupplyinCart(string userid, string supId);
     }
 }

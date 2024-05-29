@@ -20,7 +20,7 @@ namespace api_курсовая.Controllers
 
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [HttpGet("CheckAccessToken")]
-        public ActionResult<bool> CheckAcccessToken(string token)
+        public ActionResult<bool> CheckAcccessToken()
         {
             return true;
         }

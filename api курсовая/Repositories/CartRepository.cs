@@ -47,7 +47,7 @@ namespace api_курсовая.Repositories
 
         }
 
-        public async Task<string> AddSupply(string userid, string supId)
+        public async Task<string> AddinCart(string userid, string supId)
         {
             ShoppingCartEntity cart = new ShoppingCartEntity(userid, supId, 1);
             await _context.ShoppingCart.AddAsync(cart);

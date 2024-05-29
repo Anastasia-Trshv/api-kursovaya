@@ -2,6 +2,8 @@
 using Kursovaya.Application.Services;
 using Kursovaya.Core.Abstract;
 using Kursovaya.Core.Model;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace api_курсовая.Controllers
@@ -16,7 +18,7 @@ namespace api_курсовая.Controllers
             this.cartService = cartService;
         }
 
-
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [HttpGet]
         public async Task<ActionResult<List<Supply>>> GetUsersSupllies(string id) 
         {
@@ -25,16 +27,17 @@ namespace api_курсовая.Controllers
             return Ok(response);
         }
 
-        [HttpPut("{id:guid}")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        [HttpPost]
         public async Task<ActionResult<string>> AddSupply(string userid, string supId)
         {
-            await cartService.AddSupply(userid, supId);
+            await cartService.AddSupplyinCart(userid, supId);
             return Ok(supId);
         }
 
 
-
-            [HttpDelete("{id:guid}")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        [HttpDelete]
         public async Task<ActionResult<Guid>> DeleteSupply(string usid,string supid)
         {
             return Ok(await cartService.DeleteSup(usid,supid));

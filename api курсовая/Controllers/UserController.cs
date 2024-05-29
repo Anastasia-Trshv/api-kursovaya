@@ -62,10 +62,12 @@ namespace api_курсовая.Controllers
                 await _userServise.CreateUser(us);
 
 
-            var refreshToken = _authRepository.GenerateRefreshToken(us);
-            var accessToken = _authRepository.GenerateAccessToken(us);
+            var refreshToken = await _authRepository.GenerateRefreshToken(us);
+            var accessToken = await _authRepository.GenerateAccessToken(us);
 
             var response = new UserResponse(us.Id, us.Name, us.Role, accessToken.ToString(), refreshToken.ToString());
+
+            
             return Ok(response);
             
         }

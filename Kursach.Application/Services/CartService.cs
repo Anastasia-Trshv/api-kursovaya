@@ -27,9 +27,9 @@ namespace Kursovaya.Application.Services
         {
             return await _repository.Delete(userid, supId);
         }
-        public async Task<string> AddSupply(string userid, string supId)
+        public async Task<string> AddSupplyinCart(string userid, string supId)
         {
-            return await _repository.AddSupply(userid, supId);
+            return await _repository.AddinCart(userid, supId);
         }
 
 

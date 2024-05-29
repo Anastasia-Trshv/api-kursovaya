@@ -16,5 +16,6 @@
         {
             return new ShoppingCartEntity(userid, supid, amount);
         }
+        public ShoppingCartEntity() { }
     }
 }
