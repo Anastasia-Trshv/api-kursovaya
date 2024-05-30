@@ -24,10 +24,7 @@ namespace api_курсовая.Repositories
                  .Where(ur => ur.UserId == id)
                  .Select(ur => ur.SupplyId)
                  .ToList();
-
             supIds.AddRange(userRecords);
-
-
 
             var sups = _context.Supplies
             .Where(s => supIds.Contains(s.Id.ToString()))
@@ -35,7 +32,6 @@ namespace api_курсовая.Repositories
             .ToList();
 
             return sups;
-
         }
 
         public async Task<string> Delete(string userid, string supId)
@@ -44,7 +40,6 @@ namespace api_курсовая.Repositories
                 .Where(s => s.UserId == userid && s.SupplyId == supId)
                 .ExecuteDeleteAsync();
             return supId;
-
         }
 
         public async Task<string> AddinCart(string userid, string supId)
